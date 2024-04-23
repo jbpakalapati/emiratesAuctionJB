@@ -102,3 +102,15 @@ Car(8, 100, "Chevy8", "12000","300",7,9876543,"hcey1","suffsfuv", 12100, 3),
     //return emptyList()
 }
 ```
+#### Loading Data from Json file
+```javascript
+    fun getCarsFromJson() : List<carsjson> {
+        val filePath = "app/src/main/res/cars.json" // Replace with your JSON file path
+        val file = File(filePath)
+
+        val jsonString = file.readText()
+        val carFromjson = Gson().fromJson(jsonString, carsjson::class.java)
+        println("Cars from json "+carFromjson.toString())
+        return listOf(carFromjson)
+    }
+```

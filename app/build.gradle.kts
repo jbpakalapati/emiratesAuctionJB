@@ -87,4 +87,5 @@ dependencies {
     // To use Kotlin annotation processing tool (kapt)
     kapt("androidx.room:room-compiler:$room_version")
     implementation("androidx.compose.runtime:runtime-livedata:1.6.6")
+    implementation ("com.google.code.gson:gson:2.10.1")
 }

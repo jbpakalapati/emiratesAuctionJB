@@ -6,8 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.emiratesauctionjb.Car
 import com.example.emiratesauctionjb.MainApplication
+import com.example.emiratesauctionjb.data.carsjson
+import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.File
 
 class CarViewModel : ViewModel() {
 
@@ -40,5 +43,15 @@ class CarViewModel : ViewModel() {
 
     fun deleteCar(){
 
+    }
+
+    fun getCarsFromJson() : List<carsjson> {
+        val filePath = "app/src/main/res/cars.json" // Replace with your JSON file path
+        val file = File(filePath)
+
+        val jsonString = file.readText()
+        val carFromjson = Gson().fromJson(jsonString, carsjson::class.java)
+        println("Cars from json "+carFromjson.toString())
+        return listOf(carFromjson)
     }
 }

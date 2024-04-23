@@ -51,6 +51,7 @@ fun CarListPage(viewModel: CarViewModel){
     //viewModel.addCar(1024)
     println("Testing "+carList.toString())
     val carsfromd = viewModel.carsLists
+    val cas = viewModel.getCarsFromJson()
     println("saved data "+ carsfromd.toString())
 
     Column(
